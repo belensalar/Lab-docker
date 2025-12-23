@@ -1,0 +1,14 @@
+#Imagen base
+FROM python:3.11-slim
+
+#Directorio de trabajo
+WORKDIR /app
+
+#Instalar paquetes
+RUN pip install --no-cache-dir ipython numpy numba nbformat
+
+#Copiando el notebook correspondiente
+COPY reduc-operation-array-par-alumno21.ipynb /app/reduc-operation-array-par-alumno21.ipynb
+
+#Ejecutar el notebook
+CMD ["ipython", "/app/reduc-operation-array-par-alumno21.ipynb", "10**5"]
